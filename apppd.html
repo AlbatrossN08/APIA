@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Disease Prediction</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style> 
+    body {
+      font-family: 'Google Sans', sans-serif;
+      margin: 20px; /* Reduce margin for smaller screens */
+    }
+    multi-input {
+      display: block; /* Display as block for better stacking on small screens */
+      margin-bottom: 20px; /* Add some bottom margin for spacing */
+    }
+    button {
+      background-color: #6cb05d;
+      border: 1px solid #ddd;  
+      font-size: 16px;
+      height: 30px;
+      margin-bottom: 20px; /* Add some bottom margin for spacing */
+    }
+    body > div {
+      display: flex;
+      flex-direction: column; /* Stack items vertically on small screens */
+    }
+    label {
+      margin-bottom: 10px; /* Add some bottom margin for spacing */
+    }
+    p {
+      text-align: left;
+    }
+    /* Multi-input styles */
+    :host {
+      border: var(--multi-input-border, 1px solid #ddd);
+      display: block;
+      overflow: hidden;
+      padding: 5px;
+    }
+    ::slotted(div.item) {
+      background-color: var(--multi-input-item-bg-color, #dedede);
+      border: var(--multi-input-item-border, 1px solid #ccc);
+      border-radius: 2px;
+      color: #222;
+      display: inline-block;
+      font-size: var(--multi-input-item-font-size, 14px);
+      margin: 5px;
+      padding: 2px 25px 2px 5px;
+      pointer-events: none;
+      position: relative;
+      top: -1px;
+    }
+    /* Change background color on hover */
+    ::slotted(div.item:hover) {
+      background-color: #eee;
+      color: black;
+    }
+    ::slotted(input) {
+      border: none;
+      font-size: var(--multi-input-input-font-size, 14px);
+      outline: none;
+      padding: 10px 10px 10px 5px;
+      width: 100%; /* Set input width to fill container */
+      box-sizing: border-box; /* Include padding and border in input width */
+    }
+    #values {
+      text-align: left; /* Align text to the left */
+    }
+  </style>
+</head>  
+
+<body>  
+  <div>
+    <h2 style="color: #6cb05d;">Disease Prediction 🦠🥼</h2>
+
+    <label>Enter Symptoms:</label>
+    <multi-input>
+  <input list="symptoms">
+  <datalist id="symptoms">
+    <option value="Itching"></option>
+    <option value="Skin rash"></option>
+    <option value="Nodal skin eruptions"></option>
+    <option value="Continuous sneezing"></option>
+    <option value="Shivering"></option>
+    <option value="Chills"></option>
+    <option value="Joint pain"></option>
+    <option value="Stomach pain"></option>
+    <option value="Acidity"></option>
+    <option value="Ulcers on tongue"></option>
+    <option value="Muscle wasting"></option>
+    <option value="Vomiting"></option>
+    <option value="Burning micturition"></option>
+    <option value="Spotting urination"></option>
+    <option value="Fatigue"></option>
+    <option value="Weight gain"></option>
+    <option value="Anxiety"></option>
+    <option value="Cold hands and feet"></option>
+    <option value="Mood swings"></option>
+    <option value="Weight loss"></option>
+    <option value="Restlessness"></option>
+    <option value="Lethargy"></option>
+    <option value="Patches in throat"></option>
+    <option value="Irregular sugar level"></option>
+    <option value="Cough"></option>
+    <option value="High fever"></option>
+    <option value="Sunken eyes"></option>
+    <option value="Breathlessness"></option>
+    <option value="Sweating"></option>
+    <option value="Dehydration"></option>
+    <option value="Indigestion"></option>
+    <option value="Headache"></option>
+    <option value="Yellowish skin"></option>
+    <option value="Dark urine"></option>
+    <option value="Nausea"></option>
+    <option value="Loss of appetite"></option>
+    <option value="Pain behind the eyes"></option>
+    <option value="Back pain"></option>
+    <option value="Constipation"></option>
+    <option value="Abdominal pain"></option>
+    <option value="Diarrhoea"></option>
+    <option value="Mild fever"></option>
+    <option value="Yellow urine"></option>
+    <option value="Yellowing of eyes"></option>
+    <option value="Acute liver failure"></option>
+    <option value="Fluid overload"></option>
+    <option value="Swelling of stomach"></option>
+    <option value="Swelled lymph nodes"></option>
+    <option value="Malaise"></option>
+    <option value="Blurred and distorted vision"></option>
+    <option value="Phlegm"></option>
+    <option value="Throat irritation"></option>
+    <option value="Redness of eyes"></option>
+    <option value="Sinus pressure"></option>
+    <option value="Runny nose"></option>
+    <option value="Congestion"></option>
+    <option value="Chest pain"></option>
+    <option value="Weakness in limbs"></option>
+    <option value="Fast heart rate"></option>
+    <option value="Pain during bowel movements"></option>
+    <option value="Pain in anal region"></option>
+    <option value="Bloody stool"></option>
+    <option value="Irritation in anus"></option>
+    <option value="Neck pain"></option>
+    <option value="Dizziness"></option>
+    <option value="Cramps"></option>
+    <option value="Bruising"></option>
+    <option value="Obesity"></option>
+    <option value="Swollen legs"></option>
+    <option value="Swollen blood vessels"></option>
+    <option value="Puffy face and eyes"></option>
+    <option value="Enlarged thyroid"></option>
+    <option value="Brittle nails"></option>
+    <option value="Swollen extremeties"></option>
+    <option value="Excessive hunger"></option>
+    <option value="Extra marital contacts"></option>
+    <option value="Drying and tingling lips"></option>
+    <option value="Slurred speech"></option>
+    <option value="Knee pain"></option>
+    <option value="Hip joint pain"></option>
+    <option value="Muscle weakness"></option>
+    <option value="Stiff neck"></option>
+    <option value="Swelling joints"></option>
+    <option value="Movement stiffness"></option>
+    <option value="Spinning movements"></option>
+    <option value="Loss of balance"></option>
+    <option value="Unsteadiness"></option>
+    <option value="Weakness of one body side"></option>
+    <option value="Loss of smell"></option>
+    <option value="Bladder discomfort"></option>
+    <option value="Foul smell of urine"></option>
+    <option value="Continuous feel of urine"></option>
+    <option value="Passage of gases"></option>
+    <option value="Internal itching"></option>
+    <option value="Toxic look (typhos)"></option>
+    <option value="Depression"></option>
+    <option value="Irritability"></option>
+    <option value="Muscle pain"></option>
+    <option value="Altered sensorium"></option>
+    <option value="Red spots over body"></option>
+    <option value="Belly pain"></option>
+    <option value="Abnormal menstruation"></option>
+    <option value="Dischromic patches"></option>
+    <option value="Watering from eyes"></option>
+    <option value="Increased appetite"></option>
+    <option value="Polyuria"></option>
+    <option value="Family history"></option>
+    <option value="Mucoid sputum"></option>
+    <option value="Rusty sputum"></option>
+    <option value="Lack of concentration"></option>
+    <option value="Visual disturbances"></option>
+    <option value="Receiving blood transfusion"></option>
+    <option value="Receiving unsterile injections"></option>
+    <option value="Coma"></option>
+    <option value="Stomach bleeding"></option>
+    <option value="Distention of abdomen"></option>
+    <option value="History of alcohol consumption"></option>
+    <option value="Fluid overload"></option>
+    <option value="Blood in sputum"></option>
+    <option value="Prominent veins on calf"></option>
+    <option value="Palpitations"></option>
+    <option value="Painful walking"></option>
+    <option value="Pus filled pimples"></option>
+    <option value="Blackheads"></option>
+    <option value="Scurring"></option>
+    <option value="Skin peeling"></option>
+    <option value="Silver like dusting"></option>
+    <option value="Small dents in nails"></option>
+    <option value="Inflammatory nails"></option>
+    <option value="Blister"></option>
+    <option value="Red sore around nose"></option>
+    <option value="Yellow crust
+
+    <button id="get"type="submit">Get</button>
+  </div>
+  <p id="values"></p>
+</body>
+
+<script>
+class MultiInput extends HTMLElement {
+  constructor() {
+    super();
+    this.innerHTML +=
+    `<style>
+    multi-input input::-webkit-calendar-picker-indicator {
+      display: none;
+    }
+    multi-input div.item::after {
+      color: black;
+      content: '×';
+      cursor: pointer;
+      font-size: 18px;
+      pointer-events: auto;
+      position: absolute;
+      right: 5px;
+      top: -1px;
+    }
+    </style>`;
+    this._shadowRoot = this.attachShadow({mode: 'open'});
+    this._shadowRoot.innerHTML =
+    `<style>
+    :host {
+      border: var(--multi-input-border, 1px solid #ddd);
+      display: block;
+      overflow: hidden;
+      padding: 5px;
+    }
+    ::slotted(div.item) {
+      background-color: var(--multi-input-item-bg-color, #dedede);
+      border: var(--multi-input-item-border, 1px solid #ccc);
+      border-radius: 2px;
+      color: #222;
+      display: inline-block;
+      font-size: var(--multi-input-item-font-size, 14px);
+      margin: 5px;
+      padding: 2px 25px 2px 5px;
+      pointer-events: none;
+      position: relative;
+      top: -1px;
+    }
+    ::slotted(div.item:hover) {
+      background-color: #eee;
+      color: black;
+    }
+    ::slotted(input) {
+      border: none;
+      font-size: var(--multi-input-input-font-size, 14px);
+      outline: none;
+      padding: 10px 10px 10px 5px; 
+    }
+    </style>
+    <slot></slot>`;
+    this._datalist = this.querySelector('datalist');
+    this._allowedValues = [];
+    for (const option of this._datalist.options) {
+      this._allowedValues.push(option.value);
+    }
+    this._input = this.querySelector('input');
+    this._input.onblur = this._handleBlur.bind(this);
+    this._input.oninput = this._handleInput.bind(this);
+    this._input.onkeydown = (event) => {
+      this._handleKeydown(event);
+    };
+    this._allowDuplicates = this.hasAttribute('allow-duplicates');
+  }
+  _addItem(value) {
+    this._input.value = '';
+    const item = document.createElement('div');
+    item.classList.add('item');
+    item.textContent = value;
+    this.insertBefore(item, this._input);
+    item.onclick = () => {
+      this._deleteItem(item);
+    };
+    if (!this._allowDuplicates) {
+      for (const option of this._datalist.options) {
+        if (option.value === value) {
+          option.remove();
+        };
+      }
+      this._allowedValues =
+      this._allowedValues.filter((item) => item !== value);
+    }
+  }
+  _deleteItem(item) {
+    const value = item.textContent;
+    item.remove();
+    if (!this._allowDuplicates) {
+      const option = document.createElement('option');
+      option.value = value;
+      // Insert as first option seems reasonable...
+      this._datalist.insertBefore(option, this._datalist.firstChild);
+      this._allowedValues.push(value);
+    }
+  }
+  _handleBlur() {
+    this._input.value = '';
+  }
+  _handleInput() {
+    const value = this._input.value;
+    if (this._allowedValues.includes(value)) {
+      this._addItem(value);
+    }
+  }
+  _handleKeydown(event) {
+    const itemToDelete = event.target.previousElementSibling;
+    const value = this._input.value;
+    if (value ==='' && event.key === 'Backspace' && itemToDelete) {
+      this._deleteItem(itemToDelete);
+    } else if (this._allowedValues.includes(value)) {
+      this._addItem(value);
+    }
+  }
+  getValues() {
+    const values = [];
+    const items = this.querySelectorAll('.item');
+    for (const item of items) {
+      values.push(item.textContent);
+    }
+    return values;
+  }
+}
+window.customElements.define('multi-input', MultiInput);
+</script>
+
+<script>
+    const getButton = document.getElementById("get");
+    const resultsElement = document.getElementById("values");
+
+    getButton.addEventListener("click", function(event) {
+      const symptoms = document.querySelector('multi-input').getValues().join(', ');
+      fetch("https://projectxqa.onrender.com/api/predict", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            symptoms
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            resultsElement.textContent = "Error: " + data.error;
+          } else {
+            resultsElement.innerHTML = `
+                    <h3>Predicted Disease:</h3> <p>${data.final_prediction}</p>
+                    <h3>Symptoms Entered:</h3> <p>${data.symptoms}</p>
+                    `;
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          resultsElement.textContent = "An error occurred. Please try again.";
+        });
+    });
+</script>
+
+</html>
