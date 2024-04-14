@@ -1,0 +1,71 @@
+body {
+  font-family: 'Google Sans', sans-serif;
+  margin: 20px; /* Reduce margin for smaller screens */
+}
+
+multi-input {
+  display: block; /* Display as block for better stacking on small screens */
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
+button {
+  background-color: #6cb05d;
+  border: 1px solid #ddd;  
+  font-size: 16px;
+  height: 30px;
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
+body > div {
+  display: flex;
+  flex-direction: column; /* Stack items vertically on small screens */
+}
+
+label {
+  margin-bottom: 10px; /* Add some bottom margin for spacing */
+}
+
+p {
+  text-align: left;
+}
+
+/* Multi-input styles */
+:host {
+  border: var(--multi-input-border, 1px solid #ddd);
+  display: block;
+  overflow: hidden;
+  padding: 5px;
+}
+
+::slotted(div.item) {
+  background-color: var(--multi-input-item-bg-color, #dedede);
+  border: var(--multi-input-item-border, 1px solid #ccc);
+  border-radius: 2px;
+  color: #222;
+  display: inline-block;
+  font-size: var(--multi-input-item-font-size, 14px);
+  margin: 5px;
+  padding: 2px 25px 2px 5px;
+  pointer-events: none;
+  position: relative;
+  top: -1px;
+}
+
+/* Change background color on hover */
+::slotted(div.item:hover) {
+  background-color: #eee;
+  color: black;
+}
+
+::slotted(input) {
+  border: none;
+  font-size: var(--multi-input-input-font-size, 14px);
+  outline: none;
+  padding: 10px 10px 10px 5px;
+  width: 100%; /* Set input width to fill container */
+  box-sizing: border-box; /* Include padding and border in input width */
+}
+
+#values {
+  text-align: left; /* Align text to the left */
+}
