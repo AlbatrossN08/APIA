@@ -3,6 +3,10 @@
 
     getButton.addEventListener("click", function(event) {
       const symptoms = document.querySelector('multi-input').getValues().join(', ');
+        if (symptoms.trim() === '') {
+        resultsElement.textContent = "Please provide me Symptom.";
+        return; // Exit the function early
+    }
       fetch("https://projectxqa.onrender.com/api/predict", {
           method: "POST",
           headers: {
